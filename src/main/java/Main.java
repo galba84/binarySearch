@@ -10,7 +10,7 @@ public class Main {
         System.out.println("Enter a searched value");
         Integer searchedValue = Integer.parseInt(scanner.nextLine());
         List<String> split = Arrays.asList(line.split(","));
-        System.out.println(search(split.stream().map(Integer::parseInt).sorted().collect(Collectors.toList()), searchedValue));
+        System.out.println(search(split.stream().map(String::strip).map(Integer::parseInt).sorted().collect(Collectors.toList()), searchedValue));
     }
 
     public static boolean search(List<Integer> sortedList, Integer value) {
