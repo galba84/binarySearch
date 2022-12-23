@@ -11,13 +11,13 @@ class MainTest {
 
     @Test
     void testPositionSuccess() {
-        boolean position = Main.getPosition(Arrays.asList(args), 6);
+        boolean position = Main.search(Arrays.asList(args), 6);
         assertTrue(position);
     }
 
     @Test
     void testPositionFail() {
-        boolean position = Main.getPosition(Arrays.asList(args), 71);
+        boolean position = Main.search(Arrays.asList(args), 71);
         assertFalse(position);
     }
 }

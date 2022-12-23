@@ -10,10 +10,10 @@ public class Main {
         System.out.println("Enter a searched value");
         Integer searchedValue = Integer.parseInt(scanner.nextLine());
         List<String> split = Arrays.asList(line.split(","));
-        System.out.println(getPosition(split.stream().map(Integer::parseInt).sorted().collect(Collectors.toList()), searchedValue));
+        System.out.println(search(split.stream().map(Integer::parseInt).sorted().collect(Collectors.toList()), searchedValue));
     }
 
-    public static boolean getPosition(List<Integer> sortedList, Integer value) {
+    public static boolean search(List<Integer> sortedList, Integer value) {
         if (sortedList.size() > 1) {
             if (value < sortedList.get(0) || value > sortedList.get(sortedList.size() - 1)) {
                 return false;
@@ -26,9 +26,9 @@ public class Main {
             if (leftTop.equals(value)) return true;
             if (rightBottom.equals(value)) return true;
             if (value < leftTop) {
-                return getPosition(leftList, value);
+                return search(leftList, value);
             } else if (value > rightBottom) {
-                return getPosition(rightList, value);
+                return search(rightList, value);
             } else return false;
         }
         return sortedList.get(0).equals(value);
